@@ -97,18 +97,15 @@ export default function App() {
     Tip: Invoke showState(currentData) anywhere in the top level of this component to see the currentData state and familiarize yourself with its content and structure. 
 */
 
-
+   // 3) get smaller font size
+    const fontStyle=getSmallestFontSize(currentData.image.quoteFontSize,currentData.text.quoteFontSize)
     
-    React.useEffect(()=>{
-        document.querySelector(".wrapper").style.backgroundImage = currentData.image.wrapperStyles.backgroundImage
-    }) 
-    // Note: this useEffect should be deleted, as it is by the end of the scrim recording. It's    
-    // only for demonstration purposes — to show what the background images look like. 
-
     return (
-        <div className="wrapper">
-            <div className="quote-container">
-                <p className="quote">
+        // 1) Add style for wrapper
+        <div className="wrapper" style={currentData.image.wrapperStyles}>
+            {/* 2)  Add style for quote-conatiner*/}
+            <div className="quote-container" style={currentData.image.containerStyles}>
+                <p className="quote" style={fontStyle}>
                     {currentData.text.fakeQuote}
                     <span className="source">-{currentData.text.fakeSource}</span>
                 </p>
